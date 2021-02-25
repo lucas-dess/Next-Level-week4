@@ -2,6 +2,7 @@ import { CompletedChallanges } from "../components/CompletedChallanges";
 import { Countdown } from "../components/Countdown";
 import { ExperienceBar } from "../components/ExperienceBar";
 import { Profile } from "../components/Profile";
+import { CountdownProvider } from '../contexts/CountdownContext'
 
 import Head from 'next/head';
 
@@ -13,16 +14,18 @@ export default function Home() {
     <div className={styles.container}>
       <ExperienceBar />
 
-      <section>
-        <div>
-          <Profile />
-          <CompletedChallanges />
-          <Countdown />
-        </div>
-        <div>
-          <ChallangeBox />
-        </div>
-      </section>
+      <CountdownProvider>
+        <section>
+          <div>
+            <Profile />
+            <CompletedChallanges />
+            <Countdown />
+          </div>
+          <div>
+            <ChallangeBox />
+          </div>
+        </section>
+      </CountdownProvider>
 
       <Head>
         <title>Início | move.it</title> 
